@@ -1,8 +1,27 @@
 # hcagent
-A multi-agent Holochain system
+Extends Holochain to allow multiple agents on the same machine.
 
 # Introduction
-`hcagent` extends Holochain to allow multiple agents on the same machine.
+`hcagent` is a complete set of tools that enables a machine to run multiple agents.
+
+## Usecases
+1. Allows a user to maintain multiple idententies that are totally isolated from each other.
+2. Allows a user to manage other people's apps while preserving their identity and own access.
+2.2 think of a parent and children.
+2.3 think of a teacher and students.
+
+## Examples
+You can do the following things:
+
+`$ hcagent init joe`
+
+`$ hcagent as joe hcadmin join ~/thatapp myapp`
+
+`$ hcagent as joe hcd myapp`
+
+`$ hcagent info joe`
+
+TBC
 
 ## Run your app on two browser tabs that simlulate two users
 You've written the code and want to see if the app works for two users!
