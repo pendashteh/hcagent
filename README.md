@@ -23,6 +23,20 @@ You can do the following things:
 
 TBC
 
+## Installation
+You can directly call `hcagent` script located in `bin/`:
+`$ /path/to/hcagent/bin/hcagent list`
+
+Or set it up to run it from anywhere:
+`$ hcagent list`
+
+You can either add the `bin/` directory to `$PATH`:
+`export PATH="${PATH}:/path/to/hcagent/bin"`
+(Some help here http://hmgaudecker.github.io/econ-python-environment/paths.html)
+
+Or, add a symlink to `bin/hcagent` in a directory that is in the `$PATH`:
+`$ ln -s /path/to/hcagent/bin/hcagent /usr/local/bin`
+
 ## Run your app on two browser tabs that simlulate two users
 You've written the code and want to see if the app works for two users!
 
@@ -67,7 +81,7 @@ Cool, had fun? More journeyes to come, stay tuned!
 
 *Tip:* Did you know you can **Star** and **Watch** a project on Github at the same time?!
 
-# Installation, Manual, Contribution, etc
+# Manual, Contribution, etc
 They're all in the oven, in the meantime, enjoy dapping with Holochain with the above entrees!
 
 # History
