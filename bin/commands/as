@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+_hcagent_ensure_agent_exists $agent_name
+
+args=($taskrunner_args)
+as_command=${args[1]}
+unset args[0]
+unset args[1]
+as_args=${args[*]}
+case $as_command in
+    "hcd")
+        hcd --debug --verbose --path $holochain_agents_path/$agent_name $as_args
+    ;;
+    "hcdev")
+        hcd --no-nat-upnp -debug --verbose --path $holochain_agents_path/$agent_name $as_args
+    ;;
+    "hcadmin")
+        port=$(($(cat $holochain_agents_path/HOLOCHAINCONFIG_PORT)+1))
+        export HOLOCHAINCONFIG_PORT=$port
+        echo $HOLOCHAINCONFIG_PORT > $holochain_agents_path/HOLOCHAINCONFIG_PORT
+        export HOLOCHAINCONFIG_BOOTSTRAP=$holochain_config_bs
+        hcadmin --debug --verbose --path $holochain_agents_path/$agent_name $as_args
+    ;;
+    "launch")
+        app_path=${args[2]}
+        app_name=${args[3]}
+        ui_port=${args[4]}
+        taskrunner_run_task rm $agent_name
+        taskrunner_run_task init $agent_name
+        taskrunner_run_task as $agent_name hcadmin join $app_path $app_name
+        taskrunner_run_task as $agent_name hcd $app_path $ui_port
+    ;;
+    *)
+        echo "[Usage]"
+        echo '$ hcagent as '$agent_name' {hcd|hcdev|hcadmin|launch}'
+    ;;
+esac

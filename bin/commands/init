@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+_hcagent_ensure_agent_is_available $agent_name
+
+hcadmin --path $holochain_agents_path/$agent_name init $agent_name

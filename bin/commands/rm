@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+_hcagent_ensure_agent_exists $agent_name
+
+rm -rf $holochain_agents_path/$agent_name
+
+echo "Agent '$agent_name' deleted."

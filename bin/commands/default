@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+echo "[HELP]"
+echo ""
+echo "Available options:"
+echo " - init AGENT_NAME	# Creates the agent"
+echo " - as COMMAND ARGUMENTS	# e.g. $ hcagent as dave hcd web"

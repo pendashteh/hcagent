@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+agent=$1
+app_path=$2
+app_name=$3
+ui_port=$4
+
+hcagent-rm $agent && hcagent-init $agent && hcadmin-agent $agent join $app_path $app_name && hcd-agent $agent $app_name $ui_port

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+_hcagent_ensure_agent_exists $agent_name
+
+cd $holochain_agents_path/$agent_name
+(ls -d ./*/ 2>/dev/null || echo "[ no app available ]" && exit) | cut -f2 -d'/' | awk '$0=" └─ "$0'

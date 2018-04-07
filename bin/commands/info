@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+_hcagent_ensure_agent_exists $agent_name
+
+echo "Agent: "$agent_name
+echo ""
+echo "Apps:"
+echo "___"
+taskrunner_run_task apps $agent_name
+
+echo ""
+echo "Config:"
+echo "------"
+taskrunner_run_task config $agent_name

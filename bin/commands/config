@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+_hcagent_ensure_agent_exists $agent_name
+
+cat $holochain_agents_path/$agent_name/system.conf
