@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+_hcagent_print_agents_list
+
+echo ''
+echo 'For more infomation on an agent, run:'
+echo '$ hcagent info AGENT_NAME'

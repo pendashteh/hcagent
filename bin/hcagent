@@ -34,7 +34,6 @@ _hcagent_print_agents_list() {
     echo "List of existing agents:"
     cd $holochain_agents_path
     ls -d ./*/ | cut -f2 -d'/' | awk '$0=" └─ "$0'
-    exit
 }
 
 taskrunner_prefix="commands/"
