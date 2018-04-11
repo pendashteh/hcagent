@@ -12,10 +12,10 @@ mkdir -p $holochain_agents_path
 
 _hcagent_ensure_agent_exists() {
 	agent_name=$1
+	echo $agent_name
 	if [ -z $agent_name ] || [ ! -d $holochain_agents_path/$agent_name ]; then
 		echo "[Error] Missing argument or agent does not exists."
-		echo "Usage: hcagent-init AGENT_NAME"
-        _hcagent_print_agents_list
+        	_hcagent_print_agents_list
 		exit
 	fi
 }
@@ -23,9 +23,8 @@ _hcagent_ensure_agent_is_available() {
 	agent_name=$1
 	if [ -z $agent_name ] || [ -d $holochain_agents_path/$agent_name ]; then
 		echo "[Error] Missing argument or name is already taken."
-		echo "Usage: hcagent-init AGENT_NAME"
 		echo "."
-        _hcagent_print_agents_list
+        	_hcagent_print_agents_list
 		exit
 	fi
 }
