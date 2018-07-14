@@ -15,6 +15,7 @@ case $as_command in
         hcd --no-nat-upnp -debug --verbose --path $holochain_agents_path/$agent_name $as_args
     ;;
     "hcadmin")
+        touch $holochain_agents_path/HOLOCHAINCONFIG_PORT
         port=$(($(cat $holochain_agents_path/HOLOCHAINCONFIG_PORT)+1))
         export HOLOCHAINCONFIG_PORT=$port
         echo $HOLOCHAINCONFIG_PORT > $holochain_agents_path/HOLOCHAINCONFIG_PORT
